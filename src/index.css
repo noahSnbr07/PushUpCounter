@@ -1,0 +1,36 @@
+:root {
+  --bg-1: #0d1b2a;
+  --bg-2: #1b263b;
+  --bg-3: #1c3047;
+  --fn-1: #778da9;
+  --fn-2: #e0e1dd;
+  --bd-1: 15px
+}
+
+body,
+.App {
+  height: 100dvh;
+  width: 100dvw;
+  margin: 0px;
+  padding: 0px;
+  background-color: var(--bg-1);
+  color: var(--fn-2);
+}
+
+.App {
+  padding: 15px;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 48;
+}
