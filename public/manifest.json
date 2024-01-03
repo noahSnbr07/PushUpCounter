@@ -1,0 +1,19 @@
+{
+  "short_name": "PUC",
+  "name": "PushUpCounter: 100 Days Challenge",
+  "id": "/",
+  "start_url": "",
+  "background_color": "#0d1b2a",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "##0d1b2a",
+  "shortcuts": [
+    {
+      "name": "!00 Days Challenge",
+      "short_name": "PUC",
+      "description": "Count PushUps 100 Days straight",
+      "url": "/today?source=pwa"
+    }
+  ],
+  "description": "Fitness Tracker"
+}
