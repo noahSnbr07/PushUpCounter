@@ -1,4 +1,4 @@
 @echo off
 color 3
-echo creating new bundle...
+echo Creating new Bundle
 npm run build
