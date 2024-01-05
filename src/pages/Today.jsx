@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/today.css';
 import getTimeLeft from '../config/functions/getTimeLeft.js';
+import init from '../config/functions/init.js';
 export default function Today() {
+    init();
     const [todayScore, setTodayScore] = useState(JSON.parse(localStorage.getItem('score')) || 0);
     const [alltimeScore, setAlltimeScore] = useState(JSON.parse(localStorage.getItem('score_alltime')) || 0);
     const [currentTime, setCurrentTime] = useState('');
@@ -17,8 +19,9 @@ export default function Today() {
         setCurrentTime(getTimeLeft());
         localStorage.setItem('score', todayScore);
         localStorage.setItem('score_alltime', alltimeScore);
-    }, [todayScore]);
+    }, [alltimeScore, todayScore]);
 
+    //upodate left time every second
     useEffect(() => {
         setInterval(() => {
             setCurrentTime(getTimeLeft());

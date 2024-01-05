@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+/* eslint-disable react/prop-types */
 import { Routes, Route, useResolvedPath, useMatch, Link } from 'react-router-dom';
 
 //import components
@@ -6,11 +6,7 @@ import Icon from './config/components/Icon.jsx';
 import Today from './pages/Today';
 import Settings from './pages/Settings';
 
-//import functions 
-import init from './config/functions/init.js';
-
 export default function App() {
-    useEffect(() => { init() }, []);
 
     return (
         <main className='App'>
