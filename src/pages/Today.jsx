@@ -2,16 +2,23 @@ import { useState, useEffect } from 'react';
 import '../styles/today.css';
 import getTimeLeft from '../config/functions/getTimeLeft.js';
 import init from '../config/functions/init.js';
+import Confetti from 'react-confetti';
 export default function Today() {
     init();
     const [todayScore, setTodayScore] = useState(JSON.parse(localStorage.getItem('score')) || 0);
     const [alltimeScore, setAlltimeScore] = useState(JSON.parse(localStorage.getItem('score_alltime')) || 0);
     const [currentTime, setCurrentTime] = useState('');
+    const [isHyped, setIsHyped] = useState(false);
 
     //change local variables not storage
     const manipulateScore = (operation) => {
         setTodayScore(prevScore => operation === 'increase' ? prevScore + 1 : prevScore - 1);
         setAlltimeScore(prevScore => operation === 'increase' ? prevScore + 1 : prevScore - 1);
+        //toggle Confetti
+        if (todayScore === 99) {
+            setIsHyped(true);
+            setTimeout(() => { setIsHyped(false); }, 5000);
+        }
     }
 
     //update and reset value
@@ -30,6 +37,7 @@ export default function Today() {
 
     return (
         <div className='today'>
+            {isHyped ? <Confetti gravity={1} /> : null}
             <section className='today-score'>
                 {todayScore}
             </section>
