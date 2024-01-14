@@ -36,6 +36,11 @@
         color: var(--fn-1);
         border: none;
         font-size: 8rem;
+
+        &:active {
+            scale: 0.75;
+            background-color: var(--bg-2);
+        }
     }
 }
 
