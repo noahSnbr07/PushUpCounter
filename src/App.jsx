@@ -16,7 +16,6 @@ export default function App() {
         <main className='App'>
             <div className='viewport'>
                 <Routes>
-                    {/* <Route index element={<Today />} /> */}
                     <Route path='today' element={<Today />} />
                     <Route path='settings' element={<Settings />} />
                 </Routes>

@@ -39,8 +39,8 @@ export default function Today() {
                 {todayScore}
             </section>
             <section className='today-operations'>
-                <button onClick={() => { setTodayScore(prevScore => prevScore + 1); }}>+</button>
-                <button onClick={() => { setTodayScore(prevScore => prevScore - 1); }}>-</button>
+                <button onClick={() => { setTodayScore(prevScore => prevScore + 1); setAlltimeScore(prevScore => prevScore + 1) }}>+</button>
+                <button onClick={() => { setTodayScore(prevScore => prevScore - 1); setAlltimeScore(prevScore => prevScore - 1) }}>-</button>
             </section >
             <section className='today-timeleft'>
                 <span>{currentTime}</span>
