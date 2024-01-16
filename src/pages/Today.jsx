@@ -11,11 +11,12 @@ export default function Today() {
     const [isHyped, setIsHyped] = useState(false);
 
     useEffect(() => {
-        if (todayScore % 10 === 0) {
+        if (todayScore === 0) { return; }
+        else if (todayScore % 10 === 0) {
             setIsHyped(true);
             setTimeout(() => { setIsHyped(false); }, 2500);
         }
-    }, [todayScore])
+    }, [todayScore]);
 
     //update and reset value
     useEffect(() => {
