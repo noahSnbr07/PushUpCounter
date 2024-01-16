@@ -13,7 +13,7 @@ export default function Today() {
     useEffect(() => {
         if (todayScore % 10 === 0) {
             setIsHyped(true);
-            setTimeout(() => { setIsHyped(false); }, time);
+            setTimeout(() => { setIsHyped(false); }, 2500);
         }
     }, [todayScore])
 
