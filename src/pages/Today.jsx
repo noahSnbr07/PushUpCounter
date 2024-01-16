@@ -10,16 +10,12 @@ export default function Today() {
     const [currentTime, setCurrentTime] = useState('');
     const [isHyped, setIsHyped] = useState(false);
 
-    //change local variables not storage
-    const manipulateScore = (operation) => {
-        setTodayScore(prevScore => operation === 'increase' ? prevScore + 1 : prevScore - 1);
-        setAlltimeScore(prevScore => operation === 'increase' ? prevScore + 1 : prevScore - 1);
-        //toggle Confetti
-        if (todayScore === 99) {
+    useEffect(() => {
+        if (todayScore % 10 === 0) {
             setIsHyped(true);
-            setTimeout(() => { setIsHyped(false); }, 5000);
+            setTimeout(() => { setIsHyped(false); }, time);
         }
-    }
+    }, [todayScore])
 
     //update and reset value
     useEffect(() => {
@@ -42,12 +38,12 @@ export default function Today() {
                 {todayScore}
             </section>
             <section className='today-operations'>
-                <button onClick={() => { manipulateScore('increase'); }}>+</button>
-                <button onClick={() => { manipulateScore('decrease'); }}>-</button>
-            </section>
+                <button onClick={() => { setTodayScore(prevScore => prevScore + 1); }}>+</button>
+                <button onClick={() => { setTodayScore(prevScore => prevScore - 1); }}>-</button>
+            </section >
             <section className='today-timeleft'>
                 <span>{currentTime}</span>
             </section>
-        </div>
+        </div >
     );
 }
