@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
 import { Routes, Route, useResolvedPath, useMatch, Link, useNavigate } from 'react-router-dom';
-
 //import components
 import Icon from './config/components/Icon.jsx';
 import Today from './pages/Today';

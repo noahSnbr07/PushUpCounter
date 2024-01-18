@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import '../styles/settings.css';
 import Styles from '../../styles.json';
 import init from '../config/functions/init';
-
+import getDaysSinceStart from '../config/functions/getDaysSinceStart.js';
 export default function Settings() {
-    init()
+    init();
     const [currentColor, setCurrentColor] = useState(localStorage.getItem('theme'));
 
     //apply settings on bootup
@@ -28,11 +28,25 @@ export default function Settings() {
         init();
     }
 
+
+    //calculate avergae value over the whole year
+    const getAvergae = () => {
+        const daysPassed = getDaysSinceStart();
+        let val = localStorage.getItem('score_alltime');
+        if (isNaN(val) || isNaN(daysPassed)) {
+            console.error('invalid storage item: it is NaN');
+        }
+        return (val / daysPassed).toFixed(1);
+    }
+
     return (
-        <div className='settings'>
-            <section className='settings-theme' onClick={cycleTheme}>{Styles[currentColor].title}</section>
-            <section> {localStorage.getItem('score_alltime')} </section>
-            <section onClick={resetVariables}> clear Storage </section>
-        </div>
+        <>
+            <div className='settings'>
+                <section className='settings-theme' onClick={cycleTheme}>{Styles[currentColor].title}</section>
+                <section> {localStorage.getItem('score_alltime')} </section>
+                <section> {getAvergae()} </section>
+                <section onClick={resetVariables}> clear Storage </section>
+            </div>
+        </>
     );
 }
